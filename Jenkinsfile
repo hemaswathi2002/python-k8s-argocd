@@ -71,19 +71,19 @@ pipeline {
                     ]) {
 
                         sh '''
-                        cat deploy.yaml
+                       cat deploy/deploy.yaml
 
-                        sed -i "s/32/${BUILD_NUMBER}/g" deploy.yaml
+sed -i "s/32/${BUILD_NUMBER}/g" deploy/deploy.yaml
 
-                        cat deploy.yaml
+cat deploy/deploy.yaml
 
-                        git config --global user.email "jenkins@example.com"
-                        git config --global user.name "Jenkins"
+git config --global user.email "jenkins@example.com"
+git config --global user.name "Jenkins"
 
-                        git add deploy.yaml
-                        git commit -m "Updated deploy yaml | Jenkins Pipeline" || true
+git add deploy/deploy.yaml
+git commit -m "Updated deploy yaml | Jenkins Pipeline" || true
 
-                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/hemaswathi2002/python-k8s-argocd.git HEAD:main
+git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/hemaswathi2002/python-k8s-argocd.git HEAD:main
                         '''
                     }
                 }
