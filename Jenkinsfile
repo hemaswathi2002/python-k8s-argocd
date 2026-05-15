@@ -73,7 +73,7 @@ pipeline {
                         sh '''
                        cat deploy/deploy.yaml
 
-sed -i "s/32/${BUILD_NUMBER}/g" deploy/deploy.yaml
+sed -i "s|image: .*|image: hemaswathi2002/cicd-e2e:${BUILD_NUMBER}|g" deploy/deploy.yaml
 
 cat deploy/deploy.yaml
 
